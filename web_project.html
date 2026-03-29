@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEasy Analytics Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-button.active { background-color: #eff6ff; color: #1d4ed8; }
+        pre { white-space: pre-wrap; word-break: break-all; }
+        .image-placeholder {
+            border: 2px dashed #cbd5e1;
+            background-color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+            min-height: 250px;
+            transition: all 0.3s ease;
+        }
+        .image-placeholder:hover {
+            border-color: #3b82f6;
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-blue-600 p-2 rounded-lg text-white">
+                        <i data-lucide="pie-chart" class="w-6 h-6"></i>
+                    </div>
+                    <h1 class="text-xl font-bold text-slate-900">ShopEasy Analytics</h1>
+                </div>
+                <nav class="hidden md:flex space-x-1">
+                    <button onclick="switchTab('overview')" class="tab-button active flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors text-slate-600 hover:bg-slate-100" id="btn-overview">
+                        <i data-lucide="briefcase" class="w-4 h-4 mr-2"></i>Tổng quan
+                    </button>
+                    <button onclick="switchTab('sql')" class="tab-button flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors text-slate-600 hover:bg-slate-100" id="btn-sql">
+                        <i data-lucide="database" class="w-4 h-4 mr-2"></i>SQL Processing
+                    </button>
+                    <button onclick="switchTab('python')" class="tab-button flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors text-slate-600 hover:bg-slate-100" id="btn-python">
+                        <i data-lucide="terminal" class="w-4 h-4 mr-2"></i>Python Sentiment
+                    </button>
+                    <button onclick="switchTab('powerbi')" class="tab-button flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors text-slate-600 hover:bg-slate-100" id="btn-powerbi">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4 mr-2"></i>Power BI
+                    </button>
+                    <!-- NAV ADD -->
+                    <button onclick="switchTab('conclusion')" class="tab-button flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors text-slate-600 hover:bg-slate-100" id="btn-conclusion">
+                        <i data-lucide="check-circle" class="w-4 h-4 mr-2"></i>Kết luận
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- TAB: OVERVIEW -->
+        <div id="overview" class="tab-content active space-y-6">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Marketing Analytics Project</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                    Phân tích chi tiết chiến dịch Marketing và phản hồi khách hàng để cải thiện tỷ lệ tương tác và chuyển đổi cho doanh nghiệp bán lẻ trực tuyến ShopEasy.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
+                        <div class="flex items-center mb-4 text-blue-600">
+                            <i data-lucide="briefcase" class="w-6 h-6 mr-3"></i>
+                            <h3 class="font-semibold text-slate-900">Business Case</h3>
+                        </div>
+                        <p class="text-sm text-slate-700">
+                            <strong>ShopEasy</strong> đang đối mặt với việc giảm sút sự tương tác của khách hàng mặc dù đã chạy nhiều chiến dịch mới.
+                        </p>
+                    </div>
+                    <div class="bg-red-50/50 rounded-xl p-6 border border-red-100">
+                        <div class="flex items-center mb-4 text-red-600">
+                            <i data-lucide="alert-circle" class="w-6 h-6 mr-3"></i>
+                            <h3 class="font-semibold text-slate-900">Business Problems</h3>
+                        </div>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li>• Reduced customer engagement</li>
+                            <li>• Decreased conversion rates</li>
+                        </ul>
+                    </div>
+                    <div class="bg-emerald-50/50 rounded-xl p-6 border border-emerald-100">
+                        <div class="flex items-center mb-4 text-emerald-600">
+                            <i data-lucide="target" class="w-6 h-6 mr-3"></i>
+                            <h3 class="font-semibold text-slate-900">Project Goals</h3>
+                        </div>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li>• Improved marketing strategies</li>
+                            <li>• Find campaign effectiveness</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div onclick="switchTab('sql')" class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-4 cursor-pointer hover:shadow-md transition-all">
+                   <div class="bg-blue-100 p-3 rounded-full text-blue-600"><i data-lucide="database"></i></div>
+                   <div><h4 class="font-semibold">Bước 1: SQL</h4><p class="text-xs text-slate-500">Xử lý dữ liệu thô</p></div>
+                </div>
+                <div onclick="switchTab('python')" class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-4 cursor-pointer hover:shadow-md transition-all">
+                   <div class="bg-yellow-100 p-3 rounded-full text-yellow-600"><i data-lucide="terminal"></i></div>
+                   <div><h4 class="font-semibold">Bước 2: Python</h4><p class="text-xs text-slate-500">Phân tích cảm xúc</p></div>
+                </div>
+                <div onclick="switchTab('powerbi')" class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-4 cursor-pointer hover:shadow-md transition-all">
+                   <div class="bg-orange-100 p-3 rounded-full text-orange-600"><i data-lucide="layout-dashboard"></i></div>
+                   <div><h4 class="font-semibold">Bước 3: Power BI</h4><p class="text-xs text-slate-500">Trực quan hóa dữ liệu</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: SQL -->
+        <div id="sql" class="tab-content space-y-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">Data Extraction & Cleaning (SQL)</h2>
+            <div class="space-y-12">
+                <div class="space-y-4">
+                    <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+                        <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
+                            <i data-lucide="database" class="w-4 h-4 mr-2"></i> 1. Gộp bảng Customers và Geography
+                        </div>
+                        <pre class="p-6 text-sm font-mono text-blue-300">
+<span class="text-slate-500"># Gộp theo ID geography để tạo ra bảng mới chứa cả 2 thông tin</span>
+<span class="text-pink-400">SELECT</span> CustomerID, CustomerName, Email, Gender, Coutry, City 
+<span class="text-pink-400">FROM</span> customers <span class="text-pink-400">AS</span> cu
+<span class="text-pink-400">LEFT JOIN</span> geography <span class="text-pink-400">AS</span> ge <span class="text-pink-400">ON</span> ge.GeographyID = cu.GeographyID;</pre>
+                    </div>
+                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 1</p></div></div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+                        <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
+                            <i data-lucide="database" class="w-4 h-4 mr-2"></i> 2. Phân loại giá Sản phẩm
+                        </div>
+                        <pre class="p-6 text-sm font-mono text-blue-300">
+<span class="text-slate-500"># Nhóm theo giá tiền products table, bỏ category</span>
+<span class="text-pink-400">SELECT</span> ProductID, ProductName, Price,
+<span class="text-pink-400">CASE</span>
+    <span class="text-pink-400">WHEN</span> price &lt; 50 <span class="text-pink-400">THEN</span> <span class="text-emerald-400">'Low_price'</span>
+    <span class="text-pink-400">WHEN</span> price <span class="text-pink-400">BETWEEN</span> 50 <span class="text-pink-400">AND</span> 100 <span class="text-pink-400">THEN</span> <span class="text-emerald-400">'Medium_price'</span>
+    <span class="text-pink-400">ELSE</span> <span class="text-emerald-400">'High_price'</span>
+<span class="text-pink-400">END AS</span> Categogy_price
+<span class="text-pink-400">FROM</span> products;</pre>
+                    </div>
+                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 2</p></div></div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+                        <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
+                            <i data-lucide="database" class="w-4 h-4 mr-2"></i> 3. Làm sạch Customer Review
+                        </div>
+                        <pre class="p-6 text-sm font-mono text-blue-300">
+<span class="text-slate-500"># Clean data : xoá khoảng trắng cho bảng customers_review</span>
+<span class="text-pink-400">SELECT</span> 
+    ReviewID,  
+    CustomerID,  
+    ProductID, 
+    ReviewDate,  
+    Rating,  
+    <span class="text-yellow-200">REPLACE</span>(ReviewText, <span class="text-emerald-400">'  '</span>, <span class="text-emerald-400">' '</span>) <span class="text-pink-400">AS</span> ReviewText
+<span class="text-pink-400">FROM</span> customer_review;</pre>
+                    </div>
+                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 3</p></div></div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+                        <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
+                            <i data-lucide="database" class="w-4 h-4 mr-2"></i> 4. Chuẩn hóa Engagement Data
+                        </div>
+                        <pre class="p-6 text-sm font-mono text-blue-300">
+<span class="text-slate-500"># Chuẩn hoá và làm sạch bảng engagement_data table</span>
+<span class="text-pink-400">SELECT</span>
+    EngagementID, ContentID, CampaignID, ProductID,  
+    <span class="text-yellow-200">UPPER</span>(<span class="text-yellow-200">REPLACE</span>(ContentType, <span class="text-emerald-400">'Socialmedia'</span>, <span class="text-emerald-400">'Social Media'</span>)) <span class="text-pink-400">AS</span> ContentType,  
+    <span class="text-yellow-200">LEFT</span>(ViewsClicksCombined, <span class="text-yellow-200">CHARINDEX</span>(<span class="text-emerald-400">'-'</span>, ViewsClicksCombined) - 1) <span class="text-pink-400">AS</span> Views,  
+    <span class="text-yellow-200">RIGHT</span>(ViewsClicksCombined, <span class="text-yellow-200">LEN</span>(ViewsClicksCombined) - <span class="text-yellow-200">CHARINDEX</span>(<span class="text-emerald-400">'-'</span>, ViewsClicksCombined)) <span class="text-pink-400">AS</span> Clicks, 
+    <span class="text-yellow-200">FORMAT</span>(<span class="text-yellow-200">CONVERT</span>(DATE, EngagementDate), <span class="text-emerald-400">'dd.MM.yyyy'</span>) <span class="text-pink-400">AS</span> EngagementDate
+<span class="text-pink-400">FROM</span> dbo.engagement_data  
+<span class="text-pink-400">WHERE</span> ContentType != <span class="text-emerald-400">'Newsletter'</span>;</pre>
+                    </div>
+                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 4</p></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: PYTHON -->
+        <div id="python" class="tab-content space-y-12">
+            <h2 class="text-2xl font-bold text-slate-900">Sentiment Analysis (Python)</h2>
+            
+            <!-- PART 1: Import & Load -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-slate-700 flex items-center">
+                    <span class="bg-yellow-100 text-yellow-700 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">1</span>
+                    Import thư viện & Đọc dữ liệu
+                </h3>
+                <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+                    <pre class="p-6 text-sm font-mono text-slate-300">
+<span class="text-slate-500"># Import thư viện dùng để phân tích cảm xúc</span>
+<span class="text-pink-400">import</span> pandas <span class="text-pink-400">as</span> pd
+<span class="text-pink-400">import</span> nltk
+<span class="text-blue-400">nltk.download</span>(<span class="text-emerald-400">'vader_lexicon'</span>)
+<span class="text-pink-400">from</span> nltk.sentiment <span class="text-pink-400">import</span> SentimentIntensityAnalyzer
+sia = <span class="text-yellow-200">SentimentIntensityAnalyzer</span>()
+
+<span class="text-slate-500"># Đọc dữ liệu từ file CSV</span>
+df = <span class="text-blue-400">pd.read_csv</span>(<span class="text-emerald-400">'customer_review.csv'</span>)
+<span class="text-blue-400">df.head</span>(10)</pre>
+                </div>
+               <img src="image_1.png" class="rounded-xl mt-4 shadow-md" />
+            </div>
+
+            <!-- PART 2: Clean Data -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-slate-700 flex items-center">
+                    <span class="bg-yellow-100 text-yellow-700 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">2</span>
+                    Làm sạch dữ liệu (Data Cleaning)
+                </h3>
+                <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+                    <pre class="p-6 text-sm font-mono text-slate-300">
+<span class="text-slate-500"># 1. Clean ReviewText (xóa khoảng trắng thừa)</span>
+df[<span class="text-emerald-400">'ReviewText'</span>] = df[<span class="text-emerald-400">'ReviewText'</span>].<span class="text-blue-400">str.strip</span>() \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="text-blue-400">str.replace</span>(<span class="text-emerald-400">r'\s+'</span>, <span class="text-emerald-400">' '</span>, regex=<span class="text-pink-400">True</span>) <span class="text-slate-500"># Xoá khoảng trắng</span>
+
+<span class="text-slate-500"># 2. Convert ReviewDate → datetime chuẩn</span>
+df[<span class="text-emerald-400">'ReviewDate'</span>] = <span class="text-blue-400">pd.to_datetime</span>(df[<span class="text-emerald-400">'ReviewDate'</span>], dayfirst=<span class="text-pink-400">True</span>)
+<span class="text-blue-400">df.head</span>()</pre>
+                </div>
+                <img src="image_2.png" class="rounded-xl mt-4 shadow-md" />
+            </div>
+
+            <!-- PART 3: Sentiment Analysis -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-slate-700 flex items-center">
+                    <span class="bg-yellow-100 text-yellow-700 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">3</span>
+                    Phân tích cảm xúc & Phân loại
+                </h3>
+                <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+                    <pre class="p-6 text-sm font-mono text-slate-300">
+<span class="text-slate-500"># Tạo file csv mới sau khi làm sạch</span>
+<span class="text-blue-400">df.to_csv</span>(<span class="text-emerald-400">'clean_customer_review.csv'</span>, index=<span class="text-pink-400">False</span>)
+df1 = <span class="text-blue-400">pd.read_csv</span>(<span class="text-emerald-400">'clean_customer_review.csv'</span>)
+
+<span class="text-slate-500"># Phân loại dựa trên điểm sentiment và rating</span>
+<span class="text-pink-400">def</span> <span class="text-yellow-200">classify_sentiment</span>(score, rating): 
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">if</span> score > <span class="text-orange-400">0.05</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">if</span> rating >= <span class="text-orange-400">4</span>: <span class="text-pink-400">return</span> <span class="text-emerald-400">'tích cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">elif</span> rating == <span class="text-orange-400">3</span>: <span class="text-pink-400">return</span> <span class="text-emerald-400">'khá tích cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">else</span>: <span class="text-pink-400">return</span> <span class="text-emerald-400">'khá tiêu cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">elif</span> score < -<span class="text-orange-400">0.05</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">if</span> rating &lt;= <span class="text-orange-400">2</span>: <span class="text-pink-400">return</span> <span class="text-red-400">'tiêu cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">elif</span> rating == <span class="text-orange-400">3</span>: <span class="text-pink-400">return</span> <span class="text-red-400">'khá tiêu cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">else</span>: <span class="text-pink-400">return</span> <span class="text-red-400">'khá tích cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">else</span>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">if</span> rating >= <span class="text-orange-400">4</span>: <span class="text-pink-400">return</span> <span class="text-emerald-400">'tích cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">elif</span> rating &lt;= <span class="text-orange-400">2</span>: <span class="text-pink-400">return</span> <span class="text-red-400">'tiêu cực'</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-400">else</span>: <span class="text-pink-400">return</span> <span class="text-slate-400">'trung lập'</span>
+
+<span class="text-slate-500"># Áp dụng tính toán</span>
+df1[<span class="text-emerald-400">'sentiment_score'</span>] = df1[<span class="text-emerald-400">'ReviewText'</span>].<span class="text-blue-400">apply</span>(<span class="text-pink-400">lambda</span> x: sia.<span class="text-yellow-200">polarity_scores</span>(x)[<span class="text-emerald-400">'compound'</span>])
+df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="text-blue-400">apply</span>(<span class="text-pink-400">lambda</span> row: <span class="text-yellow-200">classify_sentiment</span>(row[<span class="text-emerald-400">'sentiment_score'</span>], row[<span class="text-emerald-400">'Rating'</span>]), axis=<span class="text-orange-400">1</span>)
+
+<span class="text-blue-400">df1.to_csv</span>(<span class="text-emerald-400">'clean_customer_review.csv'</span>, index=<span class="text-pink-400">False</span>)
+<span class="text-blue-400">df1.head</span>(<span class="text-orange-400">10</span>)</pre>
+                </div>
+                <img src="image_3.png" class="rounded-xl mt-4 shadow-md" />
+            </div>
+        </div>
+
+        <!-- TAB: POWER BI -->
+        <!-- ONLY POWER BI + NEW TAB UPDATED -->
+
+
+<!-- UPDATED POWER BI -->
+<div id="powerbi" class="tab-content space-y-10">
+
+    <!-- PART 1 -->
+    <div class="bg-white p-6 rounded-xl border shadow-sm">
+        <h2 class="text-xl font-bold mb-4">1. Tổng quan</h2>
+        <img src="Picture1.png" class="rounded-xl mt-4 shadow-md" />
+        <div class="mt-4 text-sm text-slate-700 space-y-2">
+            <p>• Tỷ Lệ Chuyển Đổi Giảm: Tỷ lệ chuyển đổi đã phục hồi mạnh mẽ vào tháng 12, đạt 10,2%, mặc dù có sự sụt giảm xuống 5,0% vào tháng 10.</p>
+            <p>• Mức Độ Tương Tác Của Khách Hàng Giảm:</p>
+            <p>- Lượt xem giảm dần trong năm.</p>
+            <p>- Tỷ lệ nhấp đạt 15,37% cho thấy vẫn hiệu quả.</p>
+            <p>• Phân Tích Phản Hồi Khách Hàng:</p>
+            <p>- Điểm trung bình ~3,7 thấp hơn mục tiêu 4,0.</p>
+        </div>
+    </div>
+
+    <!-- PART 2 -->
+    <div class="bg-white p-6 rounded-xl border shadow-sm">
+        <h2 class="text-xl font-bold mb-4">2. Phân tích tỉ lệ chuyển đổi</h2>
+        <div class="image-placeholder">Chèn ảnh conversion dashboard</div>
+        <div class="mt-4 text-sm text-slate-700 space-y-2">
+            <p>• Xu hướng biến động theo tháng, cao ở tháng 2 và 7.</p>
+            <p>• Thấp nhất: Tháng 5 (4,3%) → cần cải thiện marketing.</p>
+            <p>• Cao nhất: Tháng 1 (18,5%) nhờ sản phẩm mùa vụ.</p>
+        </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div class="bg-white p-6 rounded-xl border shadow-sm">
+        <h2 class="text-xl font-bold mb-4">3. Phân tích mức độ tương tác</h2>
+        <div class="image-placeholder">Chèn ảnh engagement dashboard</div>
+        <div class="mt-4 text-sm text-slate-700 space-y-2">
+            <p>• Lượt xem giảm từ tháng 8 trở đi.</p>
+            <p>• CTR thấp → cần nội dung hấp dẫn hơn.</p>
+            <p>• Blog hiệu quả nhất, social & video ổn định.</p>
+        </div>
+    </div>
+
+    <!-- PART 4 -->
+    <div class="bg-white p-6 rounded-xl border shadow-sm">
+        <h2 class="text-xl font-bold mb-4">4. Phân tích phản hồi khách hàng</h2>
+        <div class="image-placeholder">Chèn ảnh sentiment dashboard</div>
+        <div class="mt-4 text-sm text-slate-700 space-y-2">
+            <p>• Đa số đánh giá 4-5 sao → tích cực.</p>
+            <p>• 82 đánh giá tiêu cực → cần cải thiện.</p>
+            <p>• Cơ hội: chuyển mixed sentiment → positive.</p>
+        </div>
+    </div>
+</div>
+
+<!-- TAB: CONCLUSION -->
+        <div id="conclusion" class="tab-content space-y-10">
+            <div class="bg-slate-900 text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <h2 class="text-4xl font-bold mb-6">Kết quả & Hành động</h2>
+                    <p class="text-slate-400 text-lg mb-10 leading-relaxed">Dựa trên các phân tích từ SQL, Python và Power BI, chúng tôi đề xuất các hành động cụ thể sau:</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-600/30 p-2 rounded-lg mr-4"><i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Tối ưu hóa phễu chuyển đổi</h4>
+                                <p class="text-slate-400 text-sm">Tập trung nguồn lực vào tháng 1 và tháng 12 là những thời điểm mua sắm cao điểm nhất.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-emerald-600/30 p-2 rounded-lg mr-4"><i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Cải thiện chất lượng nội dung</h4>
+                                <p class="text-slate-400 text-sm">Chuyển dịch các review 'Mixed' sang 'Positive' bằng cách phản hồi nhanh các khiếu nại về giao hàng.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Background decorative element -->
+                <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-10 translate-y-10">
+                    <i data-lucide="award" class="w-64 h-64"></i>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + tabId).classList.add('active');
+            lucide.createIcons();
+        }
+
+        lucide.createIcons();
+
+        window.onload = function() {
+            new Chart(document.getElementById('sentimentChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Tích cực', 'Khá tích cực', 'Trung lập', 'Khá tiêu cực', 'Tiêu cực'],
+                    datasets: [{
+                        label: 'Số lượng phản hồi',
+                        data: [4500, 2100, 1200, 1800, 800],
+                        backgroundColor: ['#10B981', '#34D399', '#9CA3AF', '#F87171', '#EF4444'],
+                        borderRadius: 6
+                    }]
+                },
+                options: { indexAxis: 'y', plugins: { legend: { display: false } } }
+            });
+
+            new Chart(document.getElementById('priceChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Low', 'Medium', 'High'],
+                    datasets: [{
+                        data: [400, 300, 300],
+                        backgroundColor: ['#3B82F6', '#8B5CF6', '#EC4899']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('performanceChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Views',
+                        data: [4000, 3000, 5000, 2780, 1890, 4500],
+                        borderColor: '#3B82F6',
+                        tension: 0.3
+                    }, {
+                        label: 'Clicks',
+                        data: [2400, 1398, 9800, 3908, 4800, 3800],
+                        borderColor: '#10B981',
+                        tension: 0.3
+                    }]
+                }
+            });
+        };
+    </script>
+</body>
+</html>
