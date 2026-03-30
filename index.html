@@ -33,6 +33,33 @@
             border-color: #3b82f6;
             background-color: #f1f5f9;
         }
+
+         /* Hiệu ứng nút GitHub nổi bật */
+        .github-btn {
+            background: linear-gradient(135deg, #24292e 0%, #444d56 100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .github-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.2);
+        }
+        
+        .image-placeholder {
+            border: 2px dashed #cbd5e1;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+            min-height: 250px;
+            transition: all 0.3s ease;
+        }
+
     </style>
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-800">
@@ -80,6 +107,16 @@
                     Phân tích chi tiết chiến dịch Marketing và phản hồi khách hàng để cải thiện tỷ lệ tương tác và chuyển đổi cho doanh nghiệp bán lẻ trực tuyến ShopEasy.
                 </p>
                 
+                 <!-- NÚT GITHUB NỔI BẬT NHẤT -->
+                    <div class="mb-12">
+                        <a href="https://github.com/anhtung1606/marketing_project" target="_blank" class="github-btn inline-flex items-center px-8 py-4 rounded-full text-white font-bold text-lg group">
+                            <i data-lucide="github" class="w-6 h-6 mr-3"></i>
+                            Xem chi tiết file ở Github
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </a>
+                        
+                    </div>
+
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="bg-blue-50/50 rounded-xl p-6 border border-blue-100">
                         <div class="flex items-center mb-4 text-blue-600">
@@ -415,47 +452,190 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
     <!-- PART 1 -->
     <div class="bg-white p-6 rounded-xl border shadow-sm">
         <h2 class="text-xl font-bold mb-4">1. Tổng quan</h2>
-        <img src="Picture1.png" class="rounded-xl mt-4 shadow-md" />
-        <div class="mt-4 text-sm text-slate-700 space-y-2">
-            <p>• Tỷ Lệ Chuyển Đổi Giảm: Tỷ lệ chuyển đổi đã phục hồi mạnh mẽ vào tháng 12, đạt 10,2%, mặc dù có sự sụt giảm xuống 5,0% vào tháng 10.</p>
-            <p>• Mức Độ Tương Tác Của Khách Hàng Giảm:</p>
-            <p>- Lượt xem giảm dần trong năm.</p>
-            <p>- Tỷ lệ nhấp đạt 15,37% cho thấy vẫn hiệu quả.</p>
-            <p>• Phân Tích Phản Hồi Khách Hàng:</p>
-            <p>- Điểm trung bình ~3,7 thấp hơn mục tiêu 4,0.</p>
+        <img src="ds_1.png" class="rounded-xl mt-4 shadow-md" />
+       <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background-color: #fcfcf9; padding: 20px; border-radius: 12px;">
+
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+        
+        <div style="flex: 1; min-width: 200px; background: #f4f4ee; padding: 20px; border-radius: 12px;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Tỉ lệ chuyển đổi</div>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">9.6%</div>
+            <span style="background: #d1d9f0; color: #4a69bd; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">Trung bình</span>
+            <div style="font-size: 13px; color: #888; margin-top: 10px;">Dao động 7.6% – 17.3%</div>
         </div>
+
+        <div style="flex: 1; min-width: 200px; background: #f4f4ee; padding: 20px; border-radius: 12px;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Tổng lượt xem</div>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">11.76M</div>
+            <span style="background: #e1eedd; color: #4b7e37; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">Quy mô lớn</span>
+            <div style="font-size: 13px; color: #888; margin-top: 10px;">Toàn bộ giai đoạn</div>
+        </div>
+
+        <div style="flex: 1; min-width: 200px; background: #f4f4ee; padding: 20px; border-radius: 12px;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Click-through rate</div>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">19.6%</div>
+            <span style="background: #e1eedd; color: #4b7e37; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">Tích cực</span>
+            <div style="font-size: 13px; color: #888; margin-top: 10px;">2.30M / 11.76M views</div>
+        </div>
+
+        <div style="flex: 1; min-width: 200px; background: #f4f4ee; padding: 20px; border-radius: 12px;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Like rate</div>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">4.5%</div>
+            <span style="background: #f9f0e3; color: #b38b4d; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">Thấp</span>
+            <div style="font-size: 13px; color: #888; margin-top: 10px;">528K / 11.76M views</div>
+        </div>
+
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+        
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Đánh giá trung bình</div>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">3.69 / 5</div>
+            <span style="background: #f9f0e3; color: #b38b4d; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">Cần cải thiện</span>
+            <div style="font-size: 13px; color: #888; margin-top: 10px;">1,363 lượt đánh giá</div>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Tháng chuyển đổi cao nhất</div>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">Tháng 1</div>
+            <span style="background: #e1eedd; color: #4b7e37; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">17.31%</span>
+            <div style="font-size: 13px; color: #888; margin-top: 10px;">Cơ hội đầu năm rõ ràng</div>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 8px;">Tháng chuyển đổi thấp nhất</div>
+            <div style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">Tháng 7</div>
+            <span style="background: #f9f0e3; color: #b38b4d; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;">7.57%</span>
+            <div style="font-size: 13px; color: #888; margin-top: 10px;">Điểm giảm giữa năm</div>
+        </div>
+
+    </div>
+</div>
     </div>
 
     <!-- PART 2 -->
     <div class="bg-white p-6 rounded-xl border shadow-sm">
         <h2 class="text-xl font-bold mb-4">2. Phân tích tỉ lệ chuyển đổi</h2>
-        <div class="image-placeholder">Chèn ảnh conversion dashboard</div>
-        <div class="mt-4 text-sm text-slate-700 space-y-2">
-            <p>• Xu hướng biến động theo tháng, cao ở tháng 2 và 7.</p>
-            <p>• Thấp nhất: Tháng 5 (4,3%) → cần cải thiện marketing.</p>
-            <p>• Cao nhất: Tháng 1 (18,5%) nhờ sản phẩm mùa vụ.</p>
+       <img src="ds_2.png" class="rounded-xl mt-4 shadow-md" />
+        
+        <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background-color: #fcfcf9; padding: 20px; border-radius: 12px; margin-top: 10px;">
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+        
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-top: 4px solid #d1d9f0;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #d1d9f0; color: #4a69bd; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Xu Hướng Chung</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+                Tỉ lệ chuyển đổi đạt đỉnh cao nhất vào tháng 1 (17.31%), sau đó giảm dần và chạm đáy vào tháng 5 (7.61%) và tháng 7 (7.57%). Từ tháng 6 có sự phục hồi nhẹ, với hai điểm tăng đáng chú ý là tháng 9 (12.20%) và tháng 12 (11.41%). Xu hướng tổng thể cho thấy nửa đầu năm có hiệu suất thấp hơn so với tháng 1 và quý cuối năm.
+            </p>
         </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-top: 4px solid #f9f0e3;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #f9f0e3; color: #b38b4d; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Nhóm sản phẩm dưới 8% :</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+                Nhóm sản phẩm dưới <strong style="color: #d35400;">8%</strong> : Swim Goggles (5.62%), Running Shoes (6.25%), Dumbbells (7.02%), Vollayball (7.07%), BoxingGloves(7.34%), Basketball (7.45%), SoccerBalL(7.55%) cần được xem xét lại chiến lược tiếp thị và cải thiện trải nghiệm người dùng để tăng chuyển đổi.
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-top: 4px solid #e1eedd;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #e1eedd; color: #4b7e37; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Nhóm sản phẩm trên 12% :</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+               Nhóm sản phẩm trên <strong style="color: #d35400;">12%</strong> : Hockey Stick, Ski Boots, Baseball Glove, Cycling Helmet, Surfboard đang có hiệu suất tốt, có thể được sử dụng làm mô hình để áp dụng các chiến lược thành công cho các sản phẩm khác.
+            </p>
+        </div>
+
+    </div>
+</div>
+
     </div>
 
     <!-- PART 3 -->
     <div class="bg-white p-6 rounded-xl border shadow-sm">
         <h2 class="text-xl font-bold mb-4">3. Phân tích mức độ tương tác</h2>
-        <div class="image-placeholder">Chèn ảnh engagement dashboard</div>
-        <div class="mt-4 text-sm text-slate-700 space-y-2">
-            <p>• Lượt xem giảm từ tháng 8 trở đi.</p>
-            <p>• CTR thấp → cần nội dung hấp dẫn hơn.</p>
-            <p>• Blog hiệu quả nhất, social & video ổn định.</p>
+        <img src="ds_3.png" class="rounded-xl mt-4 shadow-md" />
+        
+        <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background-color: #fcfcf9; padding: 20px; border-radius: 12px; margin-top: 10px;">
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+        
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-top: 4px solid #d1d9f0;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #d1d9f0; color: #4a69bd; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Lượt Xem Giảm</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+                Lượt xem đạt đỉnh vào <strong>tháng 1 và tháng 2</strong> nhưng giảm dần từ tháng 4 trở đi. Điều này cho thấy mức độ tương tác của khán giả có dấu hiệu <span style="color: #e74c3c;">sụt giảm</span> đáng kể trong giữa năm
+            </p>
         </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-top: 4px solid #f9f0e3;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #f9f0e3; color: #b38b4d; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Tỷ Lệ Tương Tác Thấp</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+                Lượt nhấp và lượt thích vẫn ở mức thấp so với tổng lượt xem. Cần xem xét việc tạo nội dung <strong>hấp dẫn hơn</strong> hoặc bổ sung các <strong>lời kêu gọi hành động (CTA)</strong> mạnh mẽ để tối ưu hóa hiệu quả.
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-top: 4px solid #e1eedd;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #e1eedd; color: #4b7e37; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Hiệu Suất Nội Dung</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+                Nội dung <strong>Video</strong> tạo ra nhiều lượt xem nhất (đỉnh điểm tháng 1 và tháng 2). Trong khi đó, nội dung <strong>Blog, mạng xã hội</strong> duy trì mức tương tác ổn định nhưng cần cải thiện về mặt số lượng.
+            </p>
+        </div>
+
+    </div>
+</div>
+
     </div>
 
     <!-- PART 4 -->
     <div class="bg-white p-6 rounded-xl border shadow-sm">
         <h2 class="text-xl font-bold mb-4">4. Phân tích phản hồi khách hàng</h2>
-        <div class="image-placeholder">Chèn ảnh sentiment dashboard</div>
+        <img src="ds_4.png" class="rounded-xl mt-4 shadow-md" />
         <div class="mt-4 text-sm text-slate-700 space-y-2">
-            <p>• Đa số đánh giá 4-5 sao → tích cực.</p>
-            <p>• 82 đánh giá tiêu cực → cần cải thiện.</p>
-            <p>• Cơ hội: chuyển mixed sentiment → positive.</p>
+           
+            <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333; background-color: #fcfcf9; padding: 20px; border-radius: 12px; margin-top: 10px;">
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+        
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-bottom: 4px solid #e1eedd;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #e1eedd; color: #4b7e37; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Chỉ số tổng quan: </span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+               Điểm đánh giá trung bình <strong>3.69/5</strong> với <strong>1,363</strong> lượt đánh giá
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-bottom: 4px solid #f9f0e3;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #f9f0e3; color: #b38b4d; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Phân Tích Cảm Xúc</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+                Cảm xúc <strong>Tích cực</strong> chiếm ưu thế với 275 phản hồi. Mặc dù có 82 đánh giá tiêu cực và một số cảm xúc hỗn hợp, nhưng nhìn chung cơ sở khách hàng vẫn thể hiện sự chấp thuận và hài lòng tốt.
+            </p>
+        </div>
+
+        <div style="flex: 1; min-width: 280px; background: #f4f4ee; padding: 20px; border-radius: 12px; border-bottom: 4px solid #d1d9f0;">
+            <div style="margin-bottom: 12px;">
+                <span style="background: #d1d9f0; color: #4a69bd; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Cơ Hội Cải Thiện</span>
+            </div>
+            <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
+                Việc giải quyết các mối quan tâm cụ thể trong nhóm khá tích cực là cơ hội vàng để nâng cao điểm trung bình và chuyển đổi khách hàng trung lập thành khách hàng trung thành.
+            </p>
+        </div>
+
+    </div>
+</div>
+
         </div>
     </div>
 </div>
