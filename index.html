@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopEasy Analytics Portfolio</title>
+    <title>Marketing Analytic Project</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js -->
@@ -87,7 +87,7 @@
                             <h3 class="font-semibold text-slate-900">Business Case</h3>
                         </div>
                         <p class="text-sm text-slate-700">
-                            <strong>ShopEasy</strong> đang đối mặt với việc giảm sút sự tương tác của khách hàng mặc dù đã chạy nhiều chiến dịch mới.
+                            <strong>ShopEasy</strong> – một doanh nghiệp bán lẻ trực tuyến – đang gặp tình trạng suy giảm mức độ tương tác của khách hàng (customer engagement) và tỷ lệ chuyển đổi (conversion rate), mặc dù đã triển khai nhiều chiến dịch marketing online mới.
                         </p>
                     </div>
                     <div class="bg-red-50/50 rounded-xl p-6 border border-red-100">
@@ -96,8 +96,10 @@
                             <h3 class="font-semibold text-slate-900">Business Problems</h3>
                         </div>
                         <ul class="text-sm text-slate-700 space-y-2">
-                            <li>• Reduced customer engagement</li>
-                            <li>• Decreased conversion rates</li>
+                            <li>• Suy giảm mức độ tương tác của khách hàng (customer engagement)</li>
+                            <li>• Suy giảm tỷ lệ chuyển đổi sản phẩm (conversion rates)</li>
+                            <li>• Tối ưu và đánh giá hiệu quả các chiến dịch quảng cáo</li>
+                             <li>• Phân tích phản hồi khách hàng (customer reviews)</li>
                         </ul>
                     </div>
                     <div class="bg-emerald-50/50 rounded-xl p-6 border border-emerald-100">
@@ -106,8 +108,10 @@
                             <h3 class="font-semibold text-slate-900">Project Goals</h3>
                         </div>
                         <ul class="text-sm text-slate-700 space-y-2">
-                            <li>• Improved marketing strategies</li>
-                            <li>• Find campaign effectiveness</li>
+                            <li>•  Tăng tỷ lệ chuyển đổi </li>
+                            <li>•  Nâng cao mức độ tương tác khách hàng </li>
+                            <li>•  Tối ưu hiệu quả các chiến dịch quảng cáo </li>
+                            <li>•  Cải thiện điểm đánh giá khách hàng</li>
                         </ul>
                     </div>
                 </div>
@@ -126,13 +130,35 @@
                    <div class="bg-orange-100 p-3 rounded-full text-orange-600"><i data-lucide="layout-dashboard"></i></div>
                    <div><h4 class="font-semibold">Bước 3: Power BI</h4><p class="text-xs text-slate-500">Trực quan hóa dữ liệu</p></div>
                 </div>
+                <div onclick="switchTab('conclusion')" class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-4 cursor-pointer hover:shadow-md transition-all">
+                   <div class="bg-green-100 p-3 rounded-full text-green-600"><i data-lucide="check-circle"></i></div>
+                   <div><h4 class="font-semibold">Bước 4: Kết luận</h4><p class="text-xs text-slate-500">Tổng kết và đề xuất</p></div>
+                </div>
             </div>
         </div>
 
         <!-- TAB: SQL -->
         <div id="sql" class="tab-content space-y-8">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">Data Extraction & Cleaning (SQL)</h2>
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">Thu thập và làm sạch dữ liệu bằng SQL</h2>
             <div class="space-y-12">
+                <!-- PHẦN 1: MÔ TẢ -->
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 flex items-center">
+                                <i class="fa-solid fa-circle-info mr-2"></i> Mô tả khái quát về các bước xử lý dữ liệu bằng SQL
+                            </h3>
+                            <div class="prose text-slate-600 leading-relaxed">
+                                <p>Trong dự án này, dữ liệu được xử lý và làm sạch bằng SQL nhằm đảm bảo tính chính xác, nhất quán và sẵn sàng cho các bước phân tích tiếp theo:</p>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Kết hợp bảng customers và geography để bổ sung thông tin vị trí (quốc gia, thành phố) cho khách hàng</li>
+                                    <li>Phân loại sản phẩm theo mức giá (thấp, trung bình, cao) bằng CASE WHEN</li>
+                                    <li>Xử lý bảng customer_journey: loại bỏ dữ liệu trùng lặp và thay thế giá trị NULL bằng trung bình theo ngày</li>
+                                    <li>Chuẩn hóa bảng engagement_data: định dạng lại ContentType, tách Views/Clicks và chuẩn hóa ngày</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
                 <div class="space-y-4">
                     <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
                         <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
@@ -144,7 +170,7 @@
 <span class="text-pink-400">FROM</span> customers <span class="text-pink-400">AS</span> cu
 <span class="text-pink-400">LEFT JOIN</span> geography <span class="text-pink-400">AS</span> ge <span class="text-pink-400">ON</span> ge.GeographyID = cu.GeographyID;</pre>
                     </div>
-                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 1</p></div></div>
+                     <img src="table_1.png" class="rounded-xl mt-4 shadow-md" />
                 </div>
 
                 <div class="space-y-4">
@@ -162,28 +188,72 @@
 <span class="text-pink-400">END AS</span> Categogy_price
 <span class="text-pink-400">FROM</span> products;</pre>
                     </div>
-                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 2</p></div></div>
+                     <img src="table_2.png" class="rounded-xl mt-4 shadow-md" />
                 </div>
-
-                <div class="space-y-4">
-                    <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
-                        <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
-                            <i data-lucide="database" class="w-4 h-4 mr-2"></i> 3. Làm sạch Customer Review
-                        </div>
-                        <pre class="p-6 text-sm font-mono text-blue-300">
-<span class="text-slate-500"># Clean data : xoá khoảng trắng cho bảng customers_review</span>
+             <!-- phần mới thêm đoạn 3-->
+             <div class="space-y-4">
+    <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
+        <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
+            <i data-lucide="database" class="w-4 h-4 mr-2"></i> 3. Làm sạch Customer Journey & xử lý Duplicate
+        </div>
+        <pre class="p-6 text-sm font-mono text-blue-300">
+<span class="text-slate-500"># Xác định và kiểm tra các bản ghi duplicate</span>
+<span class="text-pink-400">WITH</span> DuplicateRecords <span class="text-pink-400">AS</span> (
+    <span class="text-pink-400">SELECT</span> 
+        JourneyID,
+        CustomerID,
+        ProductID,
+        VisitDate,
+        Stage,
+        Action,
+        Duration,
+        <span class="text-yellow-200">ROW_NUMBER</span>() <span class="text-pink-400">OVER</span> (
+            <span class="text-pink-400">PARTITION BY</span> CustomerID, ProductID, VisitDate, Stage, Action
+            <span class="text-pink-400">ORDER BY</span> JourneyID
+        ) <span class="text-pink-400">AS</span> row_num
+    <span class="text-pink-400">FROM</span> customer_journey
+)
+<span class="text-pink-400">SELECT</span> *
+<span class="text-pink-400">FROM</span> DuplicateRecords
+<span class="text-slate-500">-- WHERE row_num &gt; 1   -- bật dòng này nếu chỉ muốn xem duplicate</span>
+<span class="text-pink-400">ORDER BY</span> JourneyID;
+<br/>
+<span class="text-slate-500"># Làm sạch dữ liệu và xử lý NULL + chuẩn hóa</span>
 <span class="text-pink-400">SELECT</span> 
-    ReviewID,  
-    CustomerID,  
-    ProductID, 
-    ReviewDate,  
-    Rating,  
-    <span class="text-yellow-200">REPLACE</span>(ReviewText, <span class="text-emerald-400">'  '</span>, <span class="text-emerald-400">' '</span>) <span class="text-pink-400">AS</span> ReviewText
-<span class="text-pink-400">FROM</span> customer_review;</pre>
-                    </div>
-                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 3</p></div></div>
-                </div>
+    JourneyID,
+    CustomerID,
+    ProductID,
+    VisitDate,
+    Stage,
+    Action,
+    <span class="text-slate-500">-- thay NULL bằng avg theo ngày</span>
+    <span class="text-yellow-200">COALESCE</span>(Duration, avg_duration) <span class="text-pink-400">AS</span> Duration
+<span class="text-pink-400">FROM</span> (
+    <span class="text-pink-400">SELECT</span> 
+        JourneyID,
+        CustomerID,
+        ProductID,
+        VisitDate,
+        <span class="text-slate-500">-- chuẩn hóa Stage</span>
+        <span class="text-yellow-200">UPPER</span>(Stage) <span class="text-pink-400">AS</span> Stage,
+        Action,
+        Duration,
+        <span class="text-slate-500">-- tính avg duration theo ngày</span>
+        <span class="text-yellow-200">AVG</span>(Duration) <span class="text-pink-400">OVER</span> (<span class="text-pink-400">PARTITION BY</span> VisitDate) <span class="text-pink-400">AS</span> avg_duration,
+        <span class="text-slate-500">-- đánh số để loại duplicate</span>
+        <span class="text-yellow-200">ROW_NUMBER</span>() <span class="text-pink-400">OVER</span> (
+            <span class="text-pink-400">PARTITION BY</span> CustomerID, ProductID, VisitDate, <span class="text-yellow-200">UPPER</span>(Stage), Action
+            <span class="text-pink-400">ORDER BY</span> JourneyID
+        ) <span class="text-pink-400">AS</span> row_num
+    <span class="text-pink-400">FROM</span> customer_journey
+) <span class="text-pink-400">AS</span> subquery
+<span class="text-pink-400">WHERE</span> row_num = 1;
+        </pre>
+    </div>
+     <img src="table_3.png" class="rounded-xl mt-4 shadow-md" />
+</div>
 
+                 <!-- phần 4 -->
                 <div class="space-y-4">
                     <div class="bg-slate-900 rounded-xl overflow-hidden shadow-lg">
                         <div class="bg-slate-800 px-4 py-2 text-slate-300 text-sm border-b border-slate-700 flex items-center">
@@ -197,10 +267,10 @@
     <span class="text-yellow-200">LEFT</span>(ViewsClicksCombined, <span class="text-yellow-200">CHARINDEX</span>(<span class="text-emerald-400">'-'</span>, ViewsClicksCombined) - 1) <span class="text-pink-400">AS</span> Views,  
     <span class="text-yellow-200">RIGHT</span>(ViewsClicksCombined, <span class="text-yellow-200">LEN</span>(ViewsClicksCombined) - <span class="text-yellow-200">CHARINDEX</span>(<span class="text-emerald-400">'-'</span>, ViewsClicksCombined)) <span class="text-pink-400">AS</span> Clicks, 
     <span class="text-yellow-200">FORMAT</span>(<span class="text-yellow-200">CONVERT</span>(DATE, EngagementDate), <span class="text-emerald-400">'dd.MM.yyyy'</span>) <span class="text-pink-400">AS</span> EngagementDate
-<span class="text-pink-400">FROM</span> dbo.engagement_data  
+<span class="text-pink-400">FROM</span> engagement_data  
 <span class="text-pink-400">WHERE</span> ContentType != <span class="text-emerald-400">'Newsletter'</span>;</pre>
                     </div>
-                    <div class="image-placeholder"><div class="text-center"><i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i><p class="text-sm">Chèn ảnh bảng kết quả SQL 4</p></div></div>
+                    <img src="table_4.png" class="rounded-xl mt-4 shadow-md" />
                 </div>
             </div>
         </div>
@@ -208,7 +278,26 @@
         <!-- TAB: PYTHON -->
         <div id="python" class="tab-content space-y-12">
             <h2 class="text-2xl font-bold text-slate-900">Sentiment Analysis (Python)</h2>
-            
+
+            <!-- PHẦN : MÔ TẢ -->
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200">
+                            <h3 class="text-xl font-semibold mb-4 text-indigo-600 flex items-center">
+                                <i class="fa-solid fa-circle-info mr-2"></i> Tổng quan về quá trình xử lý và phân tích dữ liệu bằng Python
+                            </h3>
+                            <div class="prose text-slate-600 leading-relaxed">
+                                <p>Trong dự án, Python được sử dụng để tiếp tục xử lý, phân tích và trực quan hóa dữ liệu sau khi đã làm sạch bằng SQL:</p>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Sử dụng thư viện <strong>Pandas</strong> để load dữ liệu, kiểm tra cấu trúc và xử lý các giá trị thiếu, sai</li>
+                                    <li>Sử dụng thư viện <strong>NLTK</strong> để phân tích đánh giá của khách hàng</li>
+                                    <li>Phân loại các đánh giá theo từng nhóm khác nhau</li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+              <!-- code vừa mới thêm -->  
+                    
             <!-- PART 1: Import & Load -->
             <div class="space-y-4">
                 <h3 class="text-lg font-semibold text-slate-700 flex items-center">
@@ -286,6 +375,34 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
                 </div>
                 <img src="image_3.png" class="rounded-xl mt-4 shadow-md" />
             </div>
+        <!-- PART 4: Conclusion (NEWLY ADDED) -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-slate-700 flex items-center">
+                    <span class="bg-yellow-100 text-yellow-700 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">4</span>
+                    Kết luận từ phân tích Python
+                </h3>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-slate-700 leading-relaxed">
+                    <p class="mb-4">Qua quá trình tiền xử lý và phân tích cảm xúc (Sentiment Analysis) bằng thư viện NLTK VADER, chúng ta đã đạt được các kết quả quan trọng sau:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5"></i>
+                            <span><strong>Làm sạch dữ liệu thành công:</strong> Dữ liệu văn bản thô đã được loại bỏ khoảng trắng thừa và chuẩn hóa định dạng thời gian, tránh lỗi khi đưa vào Power BI.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5"></i>
+                            <span><strong>Lượng hóa thái độ khách hàng:</strong> Điểm cảm xúc (compound score) đã được trích xuất cho từng đánh giá, cung cấp góc nhìn đa chiều thay vì chỉ dựa vào số sao (rating).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5"></i>
+                            <span><strong>Phân loại nhãn dán thông minh:</strong> Việc kết hợp giữa <code>sentiment_score</code> và <code>rating</code> giúp xử lý được các trường hợp "sarcasm" (mỉa mai) hoặc mâu thuẫn giữa điểm số và nội dung text.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5"></i>
+                            <span>Bộ dữ liệu <code class="bg-slate-100 px-1 rounded text-pink-500 text-sm">clean_customer_review.csv</code> đã hoàn toàn sạch sẽ và sẵn sàng để tạo Insight trên Dashboard.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- TAB: POWER BI -->
@@ -344,32 +461,61 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
 </div>
 
 <!-- TAB: CONCLUSION -->
-        <div id="conclusion" class="tab-content space-y-10">
-            <div class="bg-slate-900 text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="relative z-10 max-w-2xl">
-                    <h2 class="text-4xl font-bold mb-6">Kết quả & Hành động</h2>
-                    <p class="text-slate-400 text-lg mb-10 leading-relaxed">Dựa trên các phân tích từ SQL, Python và Power BI, chúng tôi đề xuất các hành động cụ thể sau:</p>
+       <div id="conclusion" class="tab-content space-y-10">
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Kết luận & Kế hoạch Hành động</h2>
+                    <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-3xl">Dựa trên các Insight trích xuất được từ toàn bộ luồng dữ liệu (SQL xử lý thô → Python phân tích cảm xúc → Power BI trực quan hóa), chúng tôi đề xuất các chiến lược hành động sau đây để thúc đẩy doanh thu cho ShopEasy:</p>
                     
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="bg-blue-600/30 p-2 rounded-lg mr-4"><i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i></div>
-                            <div>
-                                <h4 class="font-bold text-white">Tối ưu hóa phễu chuyển đổi</h4>
-                                <p class="text-slate-400 text-sm">Tập trung nguồn lực vào tháng 1 và tháng 12 là những thời điểm mua sắm cao điểm nhất.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Item 1 -->
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                            <div class="flex items-start">
+                                <div class="bg-blue-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="filter" class="w-6 h-6 text-blue-400"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white mb-2">1. Tối ưu hóa phễu chuyển đổi</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed">Tập trung nguồn lực và ngân sách quảng cáo lớn nhất vào tháng 1 và tháng 12. Đối với các tháng sụt giảm mạnh như tháng 5 và tháng 10, cần tung ra các gói flash-sale hoặc bundle kích cầu.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-emerald-600/30 p-2 rounded-lg mr-4"><i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i></div>
-                            <div>
-                                <h4 class="font-bold text-white">Cải thiện chất lượng nội dung</h4>
-                                <p class="text-slate-400 text-sm">Chuyển dịch các review 'Mixed' sang 'Positive' bằng cách phản hồi nhanh các khiếu nại về giao hàng.</p>
+                        
+                        <!-- Item 2 -->
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-emerald-500 transition-colors">
+                            <div class="flex items-start">
+                                <div class="bg-emerald-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="edit-3" class="w-6 h-6 text-emerald-400"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white mb-2">2. Cải thiện chất lượng nội dung</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed">CTR đạt 15,37% nhưng lượt views giảm dần. Đề xuất làm mới format nội dung truyền thông, đặc biệt là đầu tư mạnh hơn vào định dạng Video ngắn vốn đang có độ giữ chân tốt hơn Blog tĩnh.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-purple-500 transition-colors">
+                            <div class="flex items-start">
+                                <div class="bg-purple-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="tags" class="w-6 h-6 text-purple-400"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white mb-2">3. Chiến lược Định giá Sản phẩm</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed">Sản phẩm phân khúc giá Low (<50$) và Medium (50$-100$) chiếm đa số tệp khách hàng. Cần sử dụng nhóm sản phẩm này làm "Sản phẩm phễu" (Loss Leader) để thu hút traffic vào website.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-rose-500 transition-colors">
+                            <div class="flex items-start">
+                                <div class="bg-rose-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="heart-handshake" class="w-6 h-6 text-rose-400"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white mb-2">4. Nâng cao trải nghiệm & CSKH</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed">Thiết lập hệ thống Auto-Alert (cảnh báo tự động) để chăm sóc ngay lập tức 82 khách hàng có đánh giá 'Tiêu cực'. Đồng thời gửi voucher xin lỗi để chuyển hóa nhóm 'Trung lập' thành 'Tích cực'.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Background decorative element -->
-                <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-10 translate-y-10">
-                    <i data-lucide="award" class="w-64 h-64"></i>
+                <div class="absolute right-0 bottom-0 opacity-[0.03] transform translate-x-1/4 translate-y-1/4 pointer-events-none">
+                    <i data-lucide="award" class="w-[400px] h-[400px]"></i>
                 </div>
             </div>
         </div>
