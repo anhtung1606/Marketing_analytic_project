@@ -124,7 +124,7 @@
                             <h3 class="font-semibold text-slate-900">Business Case</h3>
                         </div>
                         <p class="text-sm text-slate-700">
-                            <strong>ShopEasy</strong> – một doanh nghiệp bán lẻ trực tuyến – đang gặp tình trạng suy giảm mức độ tương tác của khách hàng (customer engagement) và tỷ lệ chuyển đổi (conversion rate), mặc dù đã triển khai nhiều chiến dịch marketing online mới.
+                            <strong>ShopEasy</strong> – một doanh nghiệp bán lẻ trực tuyến – đang gặp tình trạng suy giảm mức độ tương tác của khách hàng (customer engagement) và tỷ lệ chuyển đổi (conversion rate), mặc dù đã triển khai nhiều chiến dịch marketing online mới nhưng vẫn chưa đạt được hiệu quả mong muốn
                         </p>
                     </div>
                     <div class="bg-red-50/50 rounded-xl p-6 border border-red-100">
@@ -135,8 +135,7 @@
                         <ul class="text-sm text-slate-700 space-y-2">
                             <li>• Suy giảm mức độ tương tác của khách hàng (customer engagement)</li>
                             <li>• Suy giảm tỷ lệ chuyển đổi sản phẩm (conversion rates)</li>
-                            <li>• Tối ưu và đánh giá hiệu quả các chiến dịch quảng cáo</li>
-                             <li>• Phân tích phản hồi khách hàng (customer reviews)</li>
+                            <li>• Phân tích phản hồi khách hàng (customer reviews)</li>
                         </ul>
                     </div>
                     <div class="bg-emerald-50/50 rounded-xl p-6 border border-emerald-100">
@@ -146,8 +145,8 @@
                         </div>
                         <ul class="text-sm text-slate-700 space-y-2">
                             <li>•  Tăng tỷ lệ chuyển đổi </li>
-                            <li>•  Nâng cao mức độ tương tác khách hàng </li>
-                            <li>•  Tối ưu hiệu quả các chiến dịch quảng cáo </li>
+                            <li>•  Tăng mức độ tương tác khách hàng với các chiến dịch quảng cáo</li>
+                            <li>•  Tối ưu và đánh giá hiệu quả các chiến dịch quảng cáo</li>
                             <li>•  Cải thiện điểm đánh giá khách hàng</li>
                         </ul>
                     </div>
@@ -187,7 +186,7 @@
                             <div class="prose text-slate-600 leading-relaxed">
                                 <p>Trong dự án này, dữ liệu được xử lý và làm sạch bằng SQL nhằm đảm bảo tính chính xác, nhất quán và sẵn sàng cho các bước phân tích tiếp theo:</p>
                                 <ul class="list-disc pl-5 space-y-2 mt-2">
-                                    <li>Kết hợp bảng customers và geography để bổ sung thông tin vị trí (quốc gia, thành phố) cho khách hàng</li>
+                                    <li>Kết hợp bảng customers và geography để bổ sung thông tin vị trí (quốc gia, thành phố) cho bảng khách hàng</li>
                                     <li>Phân loại sản phẩm theo mức giá (thấp, trung bình, cao) bằng CASE WHEN</li>
                                     <li>Xử lý bảng customer_journey: loại bỏ dữ liệu trùng lặp và thay thế giá trị NULL bằng trung bình theo ngày</li>
                                     <li>Chuẩn hóa bảng engagement_data: định dạng lại ContentType, tách Views/Clicks và chuẩn hóa ngày</li>
@@ -314,7 +313,7 @@
 
         <!-- TAB: PYTHON -->
         <div id="python" class="tab-content space-y-12">
-            <h2 class="text-2xl font-bold text-slate-900">Sentiment Analysis (Python)</h2>
+            <h2 class="text-2xl font-bold text-slate-900">Phân tích đánh giá của khách hàng (Python)</h2>
 
             <!-- PHẦN : MÔ TẢ -->
                     <div class="space-y-6">
@@ -323,7 +322,7 @@
                                 <i class="fa-solid fa-circle-info mr-2"></i> Tổng quan về quá trình xử lý và phân tích dữ liệu bằng Python
                             </h3>
                             <div class="prose text-slate-600 leading-relaxed">
-                                <p>Trong dự án, Python được sử dụng để tiếp tục xử lý, phân tích và trực quan hóa dữ liệu sau khi đã làm sạch bằng SQL:</p>
+                                <p>Trong dự án, Python được sử dụng để tiếp tục xử lý, phân tích dữ liệu sau khi đã làm sạch bằng SQL:</p>
                                 <ul class="list-disc pl-5 space-y-2 mt-2">
                                     <li>Sử dụng thư viện <strong>Pandas</strong> để load dữ liệu, kiểm tra cấu trúc và xử lý các giá trị thiếu, sai</li>
                                     <li>Sử dụng thư viện <strong>NLTK</strong> để phân tích đánh giá của khách hàng</li>
@@ -431,7 +430,7 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5"></i>
-                            <span><strong>Phân loại nhãn dán thông minh:</strong> Việc kết hợp giữa <code>sentiment_score</code> và <code>rating</code> giúp xử lý được các trường hợp "sarcasm" (mỉa mai) hoặc mâu thuẫn giữa điểm số và nội dung text.</span>
+                            <span><strong>Phân loại nhãn dán thông minh:</strong> Việc kết hợp giữa <code>sentiment_score</code> và <code>rating</code> giúp phân loại các đánh giá một cách chính xác hơn</span>
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5"></i>
@@ -528,7 +527,7 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
                 <span style="background: #d1d9f0; color: #4a69bd; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Xu Hướng Chung</span>
             </div>
             <p style="margin: 0; line-height: 1.5; font-size: 14.5px; color: #444;">
-                Tỉ lệ chuyển đổi đạt đỉnh cao nhất vào tháng 1 (17.31%), sau đó giảm dần và chạm đáy vào tháng 5 (7.61%) và tháng 7 (7.57%). Từ tháng 6 có sự phục hồi nhẹ, với hai điểm tăng đáng chú ý là tháng 9 (12.20%) và tháng 12 (11.41%). Xu hướng tổng thể cho thấy nửa đầu năm có hiệu suất thấp hơn so với tháng 1 và quý cuối năm.
+                Tỉ lệ chuyển đổi đạt đỉnh cao nhất vào tháng 1 (17.31%), sau đó giảm dần và chạm đáy vào tháng 5 (7.61%) và tháng 8 (7.6%). Từ tháng 6 có sự phục hồi nhẹ, với hai điểm tăng đáng chú ý là tháng 9 (12.20%) và tháng 12 (11.41%). Xu hướng tổng thể cho thấy nửa đầu năm có hiệu suất thấp hơn so với tháng 1 và quý cuối năm.
             </p>
         </div>
 
@@ -645,7 +644,7 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
             <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Kết luận & Kế hoạch Hành động</h2>
-                    <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-3xl">Dựa trên các Insight trích xuất được từ toàn bộ luồng dữ liệu (SQL xử lý thô → Python phân tích cảm xúc → Power BI trực quan hóa), chúng tôi đề xuất các chiến lược hành động sau đây để thúc đẩy doanh thu cho ShopEasy:</p>
+                    <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-3xl">Dựa trên các Insight trích xuất được từ toàn bộ luồng dữ liệu (SQL xử lý thô → Python phân tích cảm xúc → Power BI trực quan hóa),tôi đề xuất các chiến lược hành động sau đây để thúc đẩy doanh thu cho ShopEasy:</p>
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <!-- Item 1 -->
@@ -653,8 +652,9 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
                             <div class="flex items-start">
                                 <div class="bg-blue-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="filter" class="w-6 h-6 text-blue-400"></i></div>
                                 <div>
-                                    <h4 class="font-bold text-lg text-white mb-2">1. Tối ưu hóa phễu chuyển đổi</h4>
-                                    <p class="text-slate-400 text-sm leading-relaxed">Tập trung nguồn lực và ngân sách quảng cáo lớn nhất vào tháng 1 và tháng 12. Đối với các tháng sụt giảm mạnh như tháng 5 và tháng 10, cần tung ra các gói flash-sale hoặc bundle kích cầu.</p>
+                                    <h4 class="font-bold text-lg text-white mb-2">1. Tăng tỷ lệ chuyển đổi</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed">Nhắm Đến Các Danh Mục Sản Phẩm Hiệu Suất Cao: Tập trung nỗ lực marketing vào các sản phẩm có tỷ lệ chuyển đổi cao đã được chứng minh, như Thuyền Kayak, Giày Trượt Tuyết và Găng Tay Bóng Chày. Triển khai các chương trình khuyến mãi theo mùa hoặc chiến dịch cá nhân hóa trong các tháng cao điểm (ví dụ: tháng 12 và tháng 1) để tận dụng các xu hướng này.
+</p>
                                 </div>
                             </div>
                         </div>
@@ -664,8 +664,8 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
                             <div class="flex items-start">
                                 <div class="bg-emerald-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="edit-3" class="w-6 h-6 text-emerald-400"></i></div>
                                 <div>
-                                    <h4 class="font-bold text-lg text-white mb-2">2. Cải thiện chất lượng nội dung</h4>
-                                    <p class="text-slate-400 text-sm leading-relaxed">CTR đạt 15,37% nhưng lượt views giảm dần. Đề xuất làm mới format nội dung truyền thông, đặc biệt là đầu tư mạnh hơn vào định dạng Video ngắn vốn đang có độ giữ chân tốt hơn Blog tĩnh.</p>
+                                    <h4 class="font-bold text-lg text-white mb-2">2. Tăng Cường Tương Tác</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed">Làm Mới Chiến Lược Nội Dung: thử nghiệm các định dạng nội dung hấp dẫn hơn như video tương tác hoặc nội dung người dùng tạo ra, ngoài ra từ tháng 9 đến 12 lượt tương tác thấp phải cải thiện các chiến dịch quảng cáo trong thời gian này</p>
                                 </div>
                             </div>
                         </div>
@@ -675,8 +675,8 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
                             <div class="flex items-start">
                                 <div class="bg-purple-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="tags" class="w-6 h-6 text-purple-400"></i></div>
                                 <div>
-                                    <h4 class="font-bold text-lg text-white mb-2">3. Chiến lược Định giá Sản phẩm</h4>
-                                    <p class="text-slate-400 text-sm leading-relaxed">Sản phẩm phân khúc giá Low (<50$) và Medium (50$-100$) chiếm đa số tệp khách hàng. Cần sử dụng nhóm sản phẩm này làm "Sản phẩm phễu" (Loss Leader) để thu hút traffic vào website.</p>
+                                    <h4 class="font-bold text-lg text-white mb-2">3. Mùa cao điểm, chưa được khai thác</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed">Tháng 1 đạt 17.31% — gần gấp đôi trung bình. Nếu ngân sách phân bổ đều 12 tháng, doanh nghiệp đang lãng phí 50% nguồn lực vào vùng thấp điểm (tháng 4–8, ~7.6%).</p>
                                 </div>
                             </div>
                         </div>
@@ -687,7 +687,7 @@ df1[<span class="text-emerald-400">'sentiment_label'</span>] = df1.<span class="
                                 <div class="bg-rose-600/30 p-3 rounded-lg mr-4 shrink-0"><i data-lucide="heart-handshake" class="w-6 h-6 text-rose-400"></i></div>
                                 <div>
                                     <h4 class="font-bold text-lg text-white mb-2">4. Nâng cao trải nghiệm & CSKH</h4>
-                                    <p class="text-slate-400 text-sm leading-relaxed">Thiết lập hệ thống Auto-Alert (cảnh báo tự động) để chăm sóc ngay lập tức 82 khách hàng có đánh giá 'Tiêu cực'. Đồng thời gửi voucher xin lỗi để chuyển hóa nhóm 'Trung lập' thành 'Tích cực'.</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed">Thiết lập hệ thống Auto-Alert (cảnh báo tự động) để chăm sóc ngay lập tức 82 khách hàng có đánh giá 'Tiêu cực'. Đồng thời gửi voucher xin lỗi để chuyển hóa nhóm 'Trung lập' thành 'Tích cực', phân loại nhóm khách hàng tiềm năng vào nhóm khách hàng trung thành trong thời gian tới.</p>
                                 </div>
                             </div>
                         </div>
